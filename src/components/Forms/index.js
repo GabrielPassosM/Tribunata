@@ -4,7 +4,7 @@ import Dropdown from "../Dropdown"
 import TextField from "../TextField"
 import "./Forms.css"
 
-const Forms = () => {
+const Forms = (props) => {
 
     const categories = [
         "Artilheiros",
@@ -21,7 +21,12 @@ const Forms = () => {
 
     const onSave = (event) => {
         event.preventDefault()
-        console.log("Forms submetido: ", category, name, image, quantity)
+        props.onPlayerRegister({
+            category,
+            name,
+            image,
+            quantity
+        })
     }
 
     return (
