@@ -6,15 +6,7 @@ import "./Forms.css"
 
 const Forms = (props) => {
 
-    const categories = [
-        "Artilheiros",
-        "Assistentes",
-        "MVPs",
-        "Cartões amarelos",
-        "Cartões vermelhos"
-    ]
-
-    const [category, setCategory] = useState(categories[0])
+    const [category, setCategory] = useState(props.categories[0])
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -36,7 +28,7 @@ const Forms = (props) => {
                 <Dropdown
                     required={true}
                     label="Categoria"
-                    itens={categories}
+                    itens={props.categories}
                     selectValue={category}
                     setSelectValue={value => setCategory(value)}
                 />
