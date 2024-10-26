@@ -51,7 +51,7 @@ function App() {
         name={cat.name} 
         primaryColor={cat.primaryColor}
         secondColor={cat.secondColor}
-        players={players}
+        players={players.filter(p => p.category === cat.name)}
       />)}
 
     </div>
