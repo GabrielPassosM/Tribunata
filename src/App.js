@@ -10,7 +10,7 @@ function App() {
 
   const registerPlayer = (player) => {
     console.log(player)
-    setPlayers(...players, player)
+    setPlayers([...players, player])
   }
 
   const categories = [
@@ -39,14 +39,20 @@ function App() {
       primaryColor: "#FEBA05",
       secondColor: "#FFF5D9",
     }
-]
+  ]
 
   return (
     <div className="App">
       <Banner />
       <Forms categories={categories.map(cat => cat.name)}  onPlayerRegister={player => registerPlayer(player)} />
       
-      {categories.map(cat => <Category key={cat.name} name={cat.name} primaryColor={cat.primaryColor} secondColor={cat.secondColor} />)}
+      {categories.map(cat => <Category 
+        key={cat.name} 
+        name={cat.name} 
+        primaryColor={cat.primaryColor}
+        secondColor={cat.secondColor}
+        players={players}
+      />)}
 
     </div>
   );
