@@ -16,13 +16,13 @@ function App() {
   const categories = [
     {
       name: "Artilheiros",
-      primaryColor: "#82CFFA",
-      secondColor: "#E8F8FF",
+      primaryColor: "#A6D157",
+      secondColor: "#F0F8E2",
     },
     {
       name: "Assistentes",
-      primaryColor: "#A6D157",
-      secondColor: "#F0F8E2",
+      primaryColor: "#82CFFA",
+      secondColor: "#E8F8FF",
     },
     {
       name: "MVPs",
@@ -31,13 +31,13 @@ function App() {
     },
     {
       name: "Cartões amarelos",
-      primaryColor: "#D86EBF",
-      secondColor: "#FAE5F5",
+      primaryColor: "#ffde59",
+      secondColor: "#faeaa6",
     },
     {
       name: "Cartões vermelhos",
-      primaryColor: "#FEBA05",
-      secondColor: "#FFF5D9",
+      primaryColor: "#ff3131",
+      secondColor: "#ff7d7d",
     }
   ]
 
