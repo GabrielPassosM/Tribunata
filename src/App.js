@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Forms from './components/Forms';
 import Category from './components/Category';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
         secondColor={cat.secondColor}
         players={players.filter(p => p.category === cat.name)}
       />)}
+
+      <Footer/>
 
     </div>
   );
