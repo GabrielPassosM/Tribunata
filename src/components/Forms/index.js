@@ -19,7 +19,7 @@ const Forms = (props) => {
             image,
             quantity
         })
-        setCategory("")
+        setCategory(props.categories[0])
         setName("")
         setImage("")
         setQuantity("")

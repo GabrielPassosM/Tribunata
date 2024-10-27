@@ -10,7 +10,6 @@ function App() {
   const [players, setPlayers] = useState([])
 
   const registerPlayer = (player) => {
-    console.log(player)
     setPlayers([...players, player])
   }
 
