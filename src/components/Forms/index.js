@@ -4,22 +4,22 @@ import Dropdown from "../Dropdown"
 import TextField from "../TextField"
 import "./Forms.css"
 
-const Forms = (props) => {
+const Forms = ({ categories, onPlayerRegister }) => {
 
-    const [category, setCategory] = useState(props.categories[0])
+    const [category, setCategory] = useState(categories[0])
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [quantity, setQuantity] = useState("")
 
     const onSave = (event) => {
         event.preventDefault()
-        props.onPlayerRegister({
+        onPlayerRegister({
             category,
             name,
             image,
             quantity
         })
-        setCategory(props.categories[0])
+        setCategory(categories[0])
         setName("")
         setImage("")
         setQuantity("")
@@ -32,7 +32,7 @@ const Forms = (props) => {
                 <Dropdown
                     required={true}
                     label="Categoria"
-                    itens={props.categories}
+                    itens={categories}
                     selectValue={category}
                     setSelectValue={value => setCategory(value)}
                 />

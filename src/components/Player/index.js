@@ -1,6 +1,6 @@
 import "./Player.css"
 
-const Player = ({ name, image, quantity, headerColor}) => {
+const Player = ({ name, image, quantity, headerColor }) => {
     return (
         <div className="player">
             <div className="playerHeader" style={{ backgroundColor: headerColor }}>
