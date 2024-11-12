@@ -41,18 +41,25 @@ function App() {
     }
   ]
 
+  function deletePlayer() {
+    console.log("oi")
+  }
+
   return (
     <div className="App">
       <Banner />
       <Forms categories={categories.map(cat => cat.name)}  onPlayerRegister={player => registerPlayer(player)} />
       
-      {categories.map(cat => <Category 
-        key={cat.name} 
-        name={cat.name} 
-        primaryColor={cat.primaryColor}
-        secondColor={cat.secondColor}
-        players={players.filter(p => p.category === cat.name)}
-      />)}
+      {categories.map(cat => 
+        <Category 
+          key={cat.name} 
+          name={cat.name} 
+          primaryColor={cat.primaryColor}
+          secondColor={cat.secondColor}
+          players={players.filter(p => p.category === cat.name)}
+          onDelete={deletePlayer}
+        />
+      )}
 
       <Footer/>
 
