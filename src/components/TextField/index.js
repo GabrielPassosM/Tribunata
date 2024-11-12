@@ -1,10 +1,10 @@
 import "./TextField.css"
 
-const TextField = (props) => {
+const TextField = ({ label, inputValue, setInputValue, required, placeholder }) => {
     return (
         <div className="text-field">
-            <label>{props.label}</label>
-            <input value={props.inputValue} onChange={event => props.setInputValue(event.target.value)} required={props.required} placeholder={props.placeholder}/>
+            <label>{label}</label>
+            <input value={inputValue} onChange={event => setInputValue(event.target.value)} required={required} placeholder={placeholder}/>
         </div>
     )
 }
