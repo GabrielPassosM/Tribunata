@@ -16,28 +16,23 @@ function App() {
   const categories = [
     {
       name: "Artilheiros",
-      primaryColor: "#A6D157",
-      secondColor: "#F0F8E2",
+      color: "#A6D157",
     },
     {
       name: "Assistentes",
-      primaryColor: "#82CFFA",
-      secondColor: "#E8F8FF",
+      color: "#82CFFA",
     },
     {
       name: "MVPs",
-      primaryColor: "#E06B69",
-      secondColor: "#FDE7E8",
+      color: "#E06B69",
     },
     {
       name: "Cartões amarelos",
-      primaryColor: "#ffde59",
-      secondColor: "#faeaa6",
+      color: "#ffde59",
     },
     {
       name: "Cartões vermelhos",
-      primaryColor: "#ff3131",
-      secondColor: "#ff7d7d",
+      color: "#ff3131",
     }
   ]
 
@@ -54,8 +49,7 @@ function App() {
         <Category 
           key={cat.name} 
           name={cat.name} 
-          primaryColor={cat.primaryColor}
-          secondColor={cat.secondColor}
+          color={cat.color}
           players={players.filter(p => p.category === cat.name)}
           onDelete={deletePlayer}
         />
