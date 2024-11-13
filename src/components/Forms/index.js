@@ -3,6 +3,7 @@ import Button from "../Button"
 import Dropdown from "../Dropdown"
 import TextField from "../TextField"
 import "./Forms.css"
+import { v4 as uuidv4 } from 'uuid';
 
 const Forms = ({ categories, onPlayerRegister }) => {
 
@@ -14,6 +15,7 @@ const Forms = ({ categories, onPlayerRegister }) => {
     const onSave = (event) => {
         event.preventDefault()
         onPlayerRegister({
+            id: uuidv4(),
             category,
             name,
             image,
