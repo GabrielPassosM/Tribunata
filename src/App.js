@@ -40,6 +40,15 @@ function App() {
     setPlayers(players.filter(p => p.id !== id))
   }
 
+  function changeFavorite(id) {
+    setPlayers(players.map(p => {
+      if (p.id === id) {
+        p.favorite = !p.favorite
+      }
+      return p
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -52,6 +61,7 @@ function App() {
           color={cat.color}
           players={players.filter(p => p.category === cat.name)}
           onDelete={deletePlayer}
+          onFavorite={changeFavorite}
         />
       )}
 
