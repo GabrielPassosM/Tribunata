@@ -8,7 +8,7 @@ const Category = ({ players, color, name, onDelete }) => {
             <h3 style={{borderColor: color}} >{name}</h3>
             <div className="players">
                 {players.map(p => {
-                    return <Player key={p.name} headerColor={color} name={p.name} image={p.image} quantity={p.quantity} onDelete={onDelete}/>
+                    return <Player key={p.id} id={p.id} headerColor={color} name={p.name} image={p.image} quantity={p.quantity} onDelete={onDelete}/>
                 })}
             </div>
         </section>

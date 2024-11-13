@@ -1,10 +1,10 @@
 import "./Player.css"
 import { FaTrash } from "react-icons/fa";
 
-const Player = ({ name, image, quantity, headerColor, onDelete }) => {
+const Player = ({ id, name, image, quantity, headerColor, onDelete }) => {
     return (
         <div className="player">
-            <FaTrash size={25} className="delete" onClick={onDelete} />
+            <FaTrash size={25} className="delete" onClick={() => onDelete(id)} />
             <div className="playerHeader" style={{ backgroundColor: headerColor }}>
                 <img src={image} alt="foto do jogador" />
             </div>

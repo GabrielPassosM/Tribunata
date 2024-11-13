@@ -36,8 +36,8 @@ function App() {
     }
   ]
 
-  function deletePlayer() {
-    console.log("oi")
+  function deletePlayer(id) {
+    setPlayers(players.filter(p => p.id !== id))
   }
 
   return (
