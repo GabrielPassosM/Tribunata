@@ -16,6 +16,7 @@ const Forms = ({ categories, onPlayerRegister }) => {
         event.preventDefault()
         onPlayerRegister({
             id: uuidv4(),
+            favorite: false,
             category,
             name,
             image,
