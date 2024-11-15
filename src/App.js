@@ -10,7 +10,8 @@ function App() {
   const [players, setPlayers] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:8000/players")
+    const apiUrl = process.env.REACT_APP_API_URL;
+    fetch(`${apiUrl}/players`)
       .then(response => response.json())
       .then(data => {
         console.log(data)
