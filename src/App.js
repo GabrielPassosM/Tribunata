@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Banner from './components/Banner';
 import Forms from './components/Forms';
 import Category from './components/Category';
@@ -8,6 +8,14 @@ import Footer from './components/Footer';
 function App() {
 
   const [players, setPlayers] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8000/players")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+  }, [])
 
   const registerPlayer = (player) => {
     setPlayers([...players, player])
