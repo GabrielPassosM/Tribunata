@@ -1,15 +1,7 @@
 import "./Player.css"
 import { FaTrash } from "react-icons/fa";
 
-const Player = ({ playerInfo, catName, headerColor, onDelete }) => {
-
-    const metricInfo = {
-        "Artilheiros": [playerInfo.goals, "gols"],
-        "Assistentes": [playerInfo.assists, "assistências"],
-        "MVPs": [playerInfo.mvps, "pontos"],
-        "Cartões amarelos": [playerInfo.yellow_cards, "amarelos"],
-        "Cartões vermelhos": [playerInfo.red_cards, "vermelhos"],
-    }[catName]
+const Player = ({ playerInfo, metricInfo, headerColor, onDelete }) => {
 
     return (
         <div className="player">
