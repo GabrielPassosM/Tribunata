@@ -2,29 +2,37 @@ import "./Player.css"
 import { FaTrash } from "react-icons/fa";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-const Player = ({ id, favorite, name, image, quantity, headerColor, onDelete, onFavorite }) => {
+const Player = ({ playerInfo, catName, headerColor, onDelete }) => {
 
-    const propsFavorite = {
-        size: 25,
-        onClick: () => onFavorite(id)
-    }
+    // const propsFavorite = {
+    //     size: 25,
+    //     onClick: () => onFavorite(id)
+    // }
+
+    const metricInfo = {
+        "Artilheiros": [playerInfo.goals, "gols"],
+        "Assistentes": [playerInfo.assists, "assistências"],
+        "MVPs": [playerInfo.mvps, "pontos"],
+        "Cartões amarelos": [playerInfo.yellow_cards, "amarelos"],
+        "Cartões vermelhos": [playerInfo.red_cards, "vermelhos"],
+    }[catName]
 
     return (
         <div className="player">
-            <FaTrash size={25} className="delete" onClick={() => onDelete(id)} />
+            <FaTrash size={25} className="delete" onClick={() => onDelete(playerInfo.id)} />
             <div className="playerHeader" style={{ backgroundColor: headerColor }}>
-                <img src={image} alt="foto do jogador" />
+                <img src={playerInfo.image_url} alt="foto do jogador" />
             </div>
 
             <div className="playerFooter">
-                <h4>{name}</h4>
-                <h5>{quantity}</h5>
-                <div className="favorite">
-                    {favorite 
+                <h4>{playerInfo.name}</h4>
+                <h5>{metricInfo[0]} {metricInfo[1]}</h5>
+                {/* <div className="favorite">
+                    {favorite
                         ? <FaHeart {...propsFavorite} color="red" /> 
                         : <FaRegHeart {...propsFavorite} />
                     }
-                </div>
+                </div> */}
             </div>
         </div>
     )

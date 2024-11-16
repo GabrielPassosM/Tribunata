@@ -14,7 +14,7 @@ function App() {
     fetch(`${apiUrl}/players`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        setPlayers(data)
       })
   }, [])
 
@@ -68,7 +68,7 @@ function App() {
           key={cat.name} 
           name={cat.name} 
           color={cat.color}
-          players={players.filter(p => p.category === cat.name)}
+          players={players}
           onDelete={deletePlayer}
           onFavorite={changeFavorite}
         />

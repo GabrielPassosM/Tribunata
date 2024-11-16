@@ -10,14 +10,12 @@ const Category = ({ players, color, name, onDelete, onFavorite }) => {
                 {players.map(p => {
                     return <Player 
                         key={p.id}
-                        id={p.id}
-                        favorite={p.favorite}
+                        playerInfo={p}
+                        // favorite={p.favorite}
+                        catName={name}
                         headerColor={color} 
-                        name={p.name} 
-                        image={p.image} 
-                        quantity={p.quantity} 
                         onDelete={onDelete}
-                        onFavorite={onFavorite}
+                        // onFavorite={onFavorite}
                     />
                 })}
             </div>
