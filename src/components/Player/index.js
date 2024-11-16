@@ -1,13 +1,7 @@
 import "./Player.css"
 import { FaTrash } from "react-icons/fa";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const Player = ({ playerInfo, catName, headerColor, onDelete }) => {
-
-    // const propsFavorite = {
-    //     size: 25,
-    //     onClick: () => onFavorite(id)
-    // }
 
     const metricInfo = {
         "Artilheiros": [playerInfo.goals, "gols"],
@@ -27,12 +21,6 @@ const Player = ({ playerInfo, catName, headerColor, onDelete }) => {
             <div className="playerFooter">
                 <h4>{playerInfo.name}</h4>
                 <h5>{metricInfo[0]} {metricInfo[1]}</h5>
-                {/* <div className="favorite">
-                    {favorite
-                        ? <FaHeart {...propsFavorite} color="red" /> 
-                        : <FaRegHeart {...propsFavorite} />
-                    }
-                </div> */}
             </div>
         </div>
     )
