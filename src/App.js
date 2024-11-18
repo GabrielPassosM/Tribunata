@@ -3,24 +3,12 @@ import Banner from './components/Banner';
 import Forms from './components/Forms';
 import Category from './components/Category';
 import Footer from './components/Footer';
+import { fetchPlayers } from './apiService';
 
 
 function App() {
 
   const [players, setPlayers] = useState([])
-
-  useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL;
-    fetch(`${apiUrl}/players`)
-      .then(response => response.json())
-      .then(data => {
-        setPlayers(data)
-      })
-  }, [])
-
-  const registerPlayer = (player) => {
-    setPlayers([...players, player])
-  }
 
   const categories = [
     {
@@ -44,6 +32,16 @@ function App() {
       color: "#ff3131",
     }
   ]
+
+  useEffect(() => {
+    fetchPlayers()
+      .then((data) => setPlayers(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  const registerPlayer = (player) => {
+    setPlayers([...players, player])
+  }
 
   function deletePlayer(id) {
     setPlayers(players.filter(p => p.id !== id))
