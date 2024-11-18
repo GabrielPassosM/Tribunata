@@ -4,6 +4,7 @@ import Forms from './components/Forms';
 import Category from './components/Category';
 import Footer from './components/Footer';
 import { fetchPlayers } from './apiService';
+import { showErrorModal } from './utils/modalUtils';
 
 
 function App() {
@@ -36,8 +37,10 @@ function App() {
   useEffect(() => {
     fetchPlayers()
       .then((data) => setPlayers(data))
-      .catch((error) => console.error(error));
-  }, []);
+      .catch((error) => 
+        showErrorModal({text: "Não foi possível buscar os jogadores. Por favor, tente novamente"})
+      )
+  }, [])
 
   const registerPlayer = (player) => {
     setPlayers([...players, player])
