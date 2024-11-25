@@ -3,8 +3,8 @@ import Banner from './components/Banner';
 import Forms from './components/Forms';
 import Category from './components/Category';
 import Footer from './components/Footer';
-import { fetchPlayers } from './apiService';
-import { showErrorModal } from './utils/modalUtils';
+import { fetchPlayers, apiDeletePlayer } from './apiService';
+import { showErrorModal, showConfirmationModal } from './utils/modalUtils';
 
 
 function App() {
@@ -46,8 +46,12 @@ function App() {
     setPlayers([...players, player])
   }
 
-  function deletePlayer(id) {
-    setPlayers(players.filter(p => p.id !== id))
+  async function deletePlayer(id) {
+    const confirmed = await showConfirmationModal()
+    if (confirmed) {
+      apiDeletePlayer(id)
+      setPlayers(players.filter(p => p.id !== id))
+    }
   }
 
   return (
