@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Forms = ({ positions, onPlayerRegister }) => {
 
-    const [position, setPosition] = useState(positions[0])
+    const [position, setPosition] = useState(positions[0].value)
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [quantity, setQuantity] = useState("")
