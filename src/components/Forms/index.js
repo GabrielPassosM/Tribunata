@@ -5,9 +5,9 @@ import TextField from "../TextField"
 import "./Forms.css"
 import { v4 as uuidv4 } from 'uuid';
 
-const Forms = ({ categories, onPlayerRegister }) => {
+const Forms = ({ positions, onPlayerRegister }) => {
 
-    const [category, setCategory] = useState(categories[0])
+    const [position, setPosition] = useState(positions[0])
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -16,13 +16,12 @@ const Forms = ({ categories, onPlayerRegister }) => {
         event.preventDefault()
         onPlayerRegister({
             id: uuidv4(),
-            favorite: false,
-            category,
+            position,
             name,
             image,
             quantity
         })
-        setCategory(categories[0])
+        setPosition(positions[0])
         setName("")
         setImage("")
         setQuantity("")
@@ -31,13 +30,13 @@ const Forms = ({ categories, onPlayerRegister }) => {
     return (
         <section className="forms">
             <form onSubmit={onSave}>
-                <h2>Preencha os dados para cadastrar o jogador na categoria</h2>
+                <h2>Preencha os dados para cadastrar o jogador</h2>
                 <Dropdown
                     required={true}
-                    label="Categoria"
-                    itens={categories}
-                    selectValue={category}
-                    setSelectValue={value => setCategory(value)}
+                    label="Posição"
+                    itens={positions}
+                    selectValue={position.value}
+                    setSelectValue={value => setPosition(value)}
                 />
                 <TextField 
                     required={true}

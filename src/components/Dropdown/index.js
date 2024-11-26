@@ -5,7 +5,7 @@ const Dropdown = ({ label, setSelectValue, required, selectValue, itens }) => {
         <div className="dropdown">
             <label>{label}</label>
             <select onChange={event => setSelectValue(event.target.value)} required={required} value={selectValue}>
-                {itens.map(item => <option key={item}>{item}</option>)}
+                {itens.map(item => <option key={item.value} value={item.value}>{item.name}</option>)}
             </select>
         </div>
     )

@@ -34,6 +34,25 @@ function App() {
     }
   ]
 
+  const positions = [
+    {
+      name: "Goleiro",
+      value: "goalkeeper"
+    },
+    {
+      name: "Zagueiro",
+      value: "defender",
+    },
+    {
+      name: "Meio-campo",
+      value: "midfielder",
+    },
+    {
+      name: "Atacante",
+      value: "forward",
+    }
+  ]
+
   useEffect(() => {
     fetchPlayers()
       .then((data) => setPlayers(data))
@@ -57,7 +76,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Forms categories={categories.map(cat => cat.name)}  onPlayerRegister={player => registerPlayer(player)} />
+      <Forms positions={positions} onPlayerRegister={player => registerPlayer(player)} />
       
       {categories.map(cat => 
         <Category 
