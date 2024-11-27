@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from "../Button"
 import Dropdown from "../Dropdown"
 import TextField from "../TextField"
+import NumberField from "../NumberField"
 import "./Forms.css"
 import { v4 as uuidv4 } from 'uuid';
 
@@ -10,7 +11,11 @@ const Forms = ({ positions, onPlayerRegister }) => {
     const [position, setPosition] = useState(positions[0].value)
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
-    const [quantity, setQuantity] = useState("")
+    const [goals, setGoals] = useState(0)
+    const [assists, setAssists] = useState(0)
+    const [mvps, setMvps] = useState(0)
+    const [yellowCards, setYellowCards] = useState(0)
+    const [redCards, setRedCards] = useState(0)
 
     const onSave = (event) => {
         event.preventDefault()
@@ -19,18 +24,22 @@ const Forms = ({ positions, onPlayerRegister }) => {
             position,
             name,
             image,
-            quantity
+            goals,
+            assists,
+            mvps,
+            yellow_cards: yellowCards,
+            red_cards: redCards
         })
         setPosition(positions[0])
         setName("")
         setImage("")
-        setQuantity("")
+        setGoals(0)
     }
 
     return (
         <section className="forms">
             <form onSubmit={onSave}>
-                <h2>Preencha os dados para cadastrar o jogador</h2>
+                <h2>Cadastrar Jogador</h2>
                 <Dropdown
                     required={true}
                     label="Posição"
@@ -51,13 +60,33 @@ const Forms = ({ positions, onPlayerRegister }) => {
                     inputValue={image}
                     setInputValue={value => setImage(value)}
                 />
-                <TextField
-                    required={true}
-                    label="Quantidade"
-                    placeholder="Digite a quantidade para a categoria" 
-                    inputValue={quantity}
-                    setInputValue={value => setQuantity(value)}
-                />
+                <div className="number-box">
+                    <NumberField
+                        label="Gols"
+                        inputValue={goals}
+                        setInputValue={value => setGoals(value)}
+                    />
+                    <NumberField
+                        label="Assistências"
+                        inputValue={assists}
+                        setInputValue={value => setAssists(value)}
+                    />
+                    <NumberField
+                        label="Pontos MVP"
+                        inputValue={mvps}
+                        setInputValue={value => setMvps(value)}
+                    />
+                    <NumberField
+                        label="Cartões amarelos"
+                        inputValue={yellowCards}
+                        setInputValue={value => setYellowCards(value)}
+                    />
+                    <NumberField
+                        label="Cartões vermelhos"
+                        inputValue={redCards}
+                        setInputValue={value => setRedCards(value)}
+                    />
+                </div>
                 <Button>
                     Cadastrar
                 </Button>

@@ -11,3 +11,21 @@
     padding: 36px 64px;
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
 }
+
+.forms form h2 {
+    text-align: center;
+}
+
+.forms form .number-box {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+.forms form .number-box > * {
+    flex: 1 1 calc(33.33% - 16px);
+    max-width: calc(33.33% - 16px);
+    min-width: 150px;
+    box-sizing: border-box;
+}
