@@ -87,9 +87,11 @@ const Forms = ({ positions, onPlayerRegister }) => {
                         setInputValue={value => setRedCards(value)}
                     />
                 </div>
-                <Button>
-                    Cadastrar
-                </Button>
+                <div className="form-button">
+                    <Button>
+                        Cadastrar
+                    </Button>
+                </div>
             </form>
         </section>
     )
