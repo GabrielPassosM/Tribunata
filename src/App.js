@@ -3,7 +3,7 @@ import Banner from './components/Banner';
 import Forms from './components/Forms';
 import Category from './components/Category';
 import Footer from './components/Footer';
-import { fetchPlayers, apiDeletePlayer } from './apiService';
+import { fetchPlayers, apiDeletePlayer, apiCreatePlayer } from './apiService';
 import { showErrorModal, showConfirmationModal } from './utils/modalUtils';
 
 
@@ -61,7 +61,8 @@ function App() {
       )
   }, [])
 
-  const registerPlayer = (player) => {
+  const registerPlayer = async (playerInfo) => {
+    const player = await apiCreatePlayer(playerInfo)
     setPlayers([...players, player])
   }
 

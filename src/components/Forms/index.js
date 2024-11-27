@@ -4,7 +4,6 @@ import Dropdown from "../Dropdown"
 import TextField from "../TextField"
 import NumberField from "../NumberField"
 import "./Forms.css"
-import { v4 as uuidv4 } from 'uuid';
 
 const Forms = ({ positions, onPlayerRegister }) => {
 
@@ -20,7 +19,6 @@ const Forms = ({ positions, onPlayerRegister }) => {
     const onSave = (event) => {
         event.preventDefault()
         onPlayerRegister({
-            id: uuidv4(),
             position,
             name,
             image,
@@ -30,7 +28,7 @@ const Forms = ({ positions, onPlayerRegister }) => {
             yellow_cards: yellowCards,
             red_cards: redCards
         })
-        setPosition(positions[0])
+        setPosition(positions[0].value)
         setName("")
         setImage("")
         setGoals(0)

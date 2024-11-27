@@ -32,3 +32,17 @@ export const apiDeletePlayer = async (playerId) => {
     showErrorModal({text: errorMsg})
   }
 }
+
+export const apiCreatePlayer = async (playerInfo) => {
+  try {
+    const response = await axios.post(`${apiUrl}/player`, playerInfo)
+    showSuccessModal({title: "Jogador cadastrado com sucesso"})
+    return response.data
+  } catch(error) {
+    let errorMsg = unexpectedErrorMsg
+    if (error.status < 500) {
+      errorMsg = error.response?.data?.detail ?? unexpectedErrorMsg
+    }
+    showErrorModal({text: errorMsg})
+  }
+}
