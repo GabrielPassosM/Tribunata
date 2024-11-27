@@ -32,6 +32,10 @@ const Forms = ({ positions, onPlayerRegister }) => {
         setName("")
         setImage("")
         setGoals(0)
+        setAssists(0)
+        setMvps(0)
+        setYellowCards(0)
+        setRedCards(0)
     }
 
     return (
