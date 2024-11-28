@@ -37,7 +37,13 @@
     padding: 0 16px;
 }
 
-.player .delete {
+.player .edit-player {
+    position: absolute;
+    right: 25px;
+    top: -10px;
+}
+
+.player .delete-player {
     position: absolute;
     right: -10px;
     top: -10px;

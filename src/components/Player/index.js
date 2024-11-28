@@ -1,5 +1,6 @@
 import "./Player.css"
 import { FaTrash } from "react-icons/fa";
+import { BiSolidPencil } from "react-icons/bi";
 
 const Player = ({ playerInfo, metricInfo, headerColor, onDelete }) => {
 
@@ -12,7 +13,8 @@ const Player = ({ playerInfo, metricInfo, headerColor, onDelete }) => {
 
     return (
         <div className="player">
-            <FaTrash size={25} className="delete" onClick={() => onDelete(playerInfo.id)} />
+            <BiSolidPencil size={28} className="edit-player" />
+            <FaTrash size={25} className="delete-player" onClick={() => onDelete(playerInfo.id)} />
             <div className="playerHeader" style={{ backgroundColor: headerColor }}>
                 <img src={playerInfo.image_url} alt="foto do jogador" />
             </div>
