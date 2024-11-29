@@ -3,32 +3,34 @@ import Button from "../Button"
 import Dropdown from "../Dropdown"
 import TextField from "../TextField"
 import NumberField from "../NumberField"
+import { AppPositions } from "../../consts.js"
 import "./Forms.css"
 
-const Forms = ({ positions, onPlayerRegister }) => {
+const Forms = ({ onFormsSubmit, action, onClose, currentValues = {} }) => {
 
-    const [position, setPosition] = useState(positions[0].value)
-    const [name, setName] = useState("")
-    const [image, setImage] = useState("")
-    const [goals, setGoals] = useState(0)
-    const [assists, setAssists] = useState(0)
-    const [mvps, setMvps] = useState(0)
-    const [yellowCards, setYellowCards] = useState(0)
-    const [redCards, setRedCards] = useState(0)
+    debugger
+    const [position, setPosition] = useState(currentValues.position || AppPositions[0].value)
+    const [name, setName] = useState(currentValues.name || "")
+    const [imageUrl, setImage] = useState(currentValues.image_url || "")
+    const [goals, setGoals] = useState(currentValues.goals || 0)
+    const [assists, setAssists] = useState(currentValues.assists || 0)
+    const [mvps, setMvps] = useState(currentValues.mvps || 0)
+    const [yellowCards, setYellowCards] = useState(currentValues.yellow_cards || 0)
+    const [redCards, setRedCards] = useState(currentValues.red_cards || 0)
 
     const onSave = (event) => {
         event.preventDefault()
-        onPlayerRegister({
+        onFormsSubmit({
             position,
             name,
-            image,
+            image_url: imageUrl,
             goals,
             assists,
             mvps,
             yellow_cards: yellowCards,
             red_cards: redCards
         })
-        setPosition(positions[0].value)
+        setPosition(AppPositions[0].value)
         setName("")
         setImage("")
         setGoals(0)
@@ -38,15 +40,18 @@ const Forms = ({ positions, onPlayerRegister }) => {
         setRedCards(0)
     }
 
+    const title = action === "create" ? "Cadastrar Jogador" : "Atualizar Jogador"
+    const buttonLabel = action === "create" ? "Cadastrar" : "Atualizar"
+
     return (
         <section className="forms">
             <form onSubmit={onSave}>
-                <h2>Cadastrar Jogador</h2>
+                <h2>{ title }</h2>
                 <Dropdown
                     required={true}
                     label="Posição"
-                    itens={positions}
-                    selectValue={position.value}
+                    itens={AppPositions}
+                    selectValue={position}
                     setSelectValue={value => setPosition(value)}
                 />
                 <TextField 
@@ -59,7 +64,7 @@ const Forms = ({ positions, onPlayerRegister }) => {
                 <TextField
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
-                    inputValue={image}
+                    inputValue={imageUrl}
                     setInputValue={value => setImage(value)}
                 />
                 <div className="number-box">
@@ -89,10 +94,21 @@ const Forms = ({ positions, onPlayerRegister }) => {
                         setInputValue={value => setRedCards(value)}
                     />
                 </div>
-                <div className="form-button">
-                    <Button>
-                        Cadastrar
-                    </Button>
+
+                <div className="form-buttons-container">
+                    { action === "update" &&
+                        <div className="close-form-button" onClick={onClose}>
+                            <Button>
+                                Cancelar
+                            </Button>
+                        </div>
+                    }
+
+                    <div>
+                        <Button>
+                            { buttonLabel }
+                        </Button>
+                    </div>
                 </div>
             </form>
         </section>

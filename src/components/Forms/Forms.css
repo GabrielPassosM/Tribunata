@@ -30,7 +30,17 @@
     box-sizing: border-box;
 }
 
-.forms .form-button {
+.forms .form-buttons-container {
     display: flex;
     justify-content: flex-end;
+    margin-top: 32px;
+}
+
+.forms .close-form-button button{
+    background-color: red;
+    margin-right: 32px;
+}
+
+.forms .close-form-button button:hover {
+    color: #f2f2f2;
 }
