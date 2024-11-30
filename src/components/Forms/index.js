@@ -8,7 +8,6 @@ import "./Forms.css"
 
 const Forms = ({ onFormsSubmit, action, onClose, currentValues = {} }) => {
 
-    debugger
     const [position, setPosition] = useState(currentValues.position || AppPositions[0].value)
     const [name, setName] = useState(currentValues.name || "")
     const [imageUrl, setImage] = useState(currentValues.image_url || "")
@@ -28,7 +27,8 @@ const Forms = ({ onFormsSubmit, action, onClose, currentValues = {} }) => {
             assists,
             mvps,
             yellow_cards: yellowCards,
-            red_cards: redCards
+            red_cards: redCards,
+            playerId: currentValues.id
         })
         setPosition(AppPositions[0].value)
         setName("")

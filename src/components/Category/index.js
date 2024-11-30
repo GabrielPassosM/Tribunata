@@ -2,7 +2,7 @@ import Player from "../Player"
 import "./Category.css"
 import hexToRgba from 'hex-to-rgba';
 
-const Category = ({ players, color, name, onDelete }) => {
+const Category = ({ players, color, name, onDelete, onUpdate }) => {
 
     const metricKey = {
         "Artilheiros": "goals",
@@ -35,6 +35,7 @@ const Category = ({ players, color, name, onDelete }) => {
                         metricInfo={[p[metricKey], metricLabel]}
                         headerColor={color} 
                         onDelete={onDelete}
+                        onUpdate={onUpdate}
                     />
                 })}
             </div>

@@ -5,14 +5,14 @@ import { BiSolidPencil } from "react-icons/bi";
 import EditModal from "../EditModal";
 import Forms from "../Forms";
 
-const Player = ({ playerInfo, metricInfo, headerColor, onDelete }) => {
+const Player = ({ playerInfo, metricInfo, headerColor, onDelete, onUpdate }) => {
 
     const [isModalVisible, setModalVisible] = useState(false);
     const openModal = () => setModalVisible(true);
     const closeModal = () => setModalVisible(false);
 
     const FuncTest = (player) => {
-        console.log(player)
+        onUpdate(player)
         closeModal()
     }
 

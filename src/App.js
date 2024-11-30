@@ -3,7 +3,7 @@ import Banner from './components/Banner';
 import Forms from './components/Forms';
 import Category from './components/Category';
 import Footer from './components/Footer';
-import { fetchPlayers, apiDeletePlayer, apiCreatePlayer } from './apiService';
+import { fetchPlayers, apiDeletePlayer, apiCreatePlayer, apiUpdatePlayer } from './apiService';
 import { showErrorModal, showConfirmationModal } from './utils/modalUtils';
 import { AppCategories } from "./consts.js"
 
@@ -23,6 +23,15 @@ function App() {
   const registerPlayer = async (playerInfo) => {
     const player = await apiCreatePlayer(playerInfo)
     setPlayers([...players, player])
+  }
+
+  const updatePlayer = async (playerInfo) => {
+    const updatedPlayer = await apiUpdatePlayer(playerInfo)
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player) =>
+        player.id === updatedPlayer.id ? updatedPlayer : player
+      )
+    );
   }
 
   async function deletePlayer(id) {
@@ -45,6 +54,7 @@ function App() {
           color={cat.color}
           players={players}
           onDelete={deletePlayer}
+          onUpdate={updatePlayer}
         />
       )}
 
