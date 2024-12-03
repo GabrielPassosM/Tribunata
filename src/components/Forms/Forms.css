@@ -36,11 +36,54 @@
     margin-top: 32px;
 }
 
-.forms .close-form-button button{
-    background-color: red;
-    margin-right: 32px;
+.forms .close-form-button .button{
+    background: linear-gradient(90deg, #F75C63, #FF8C63); /* Red-orange gradient */
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin: 16px 32px 16px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
-.forms .close-form-button button:hover {
-    color: #f2f2f2;
+.forms .close-form-button .button:hover {
+    color: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    transform: translateY(-2px); /* Slight "lift" effect */
+}
+
+.forms .close-form-button .cancel-button:active {
+    transform: translateY(1px); /* Presses in slightly */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+}
+
+.forms .submit-form-button .button {
+    background: linear-gradient(90deg, #6278F7, #8C63FF); /* Gradient background */
+    border-radius: 12px; /* Slightly more rounded corners */
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px 32px; /* Balanced padding for width and height */
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin: 16px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+    text-transform: uppercase; /* Optional: makes text uppercase */
+}
+
+.forms .submit-form-button .button:hover {
+    color: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    transform: translateY(-2px); /* Slight "lift" effect */
+}
+
+.forms .submit-form-button.button:active {
+    transform: translateY(1px); /* Button presses in slightly */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
 }

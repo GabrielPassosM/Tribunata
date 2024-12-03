@@ -104,7 +104,7 @@ const Forms = ({ onFormsSubmit, action, onClose, currentValues = {} }) => {
                         </div>
                     }
 
-                    <div>
+                    <div className="submit-form-button">
                         <Button>
                             { buttonLabel }
                         </Button>
