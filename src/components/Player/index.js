@@ -5,13 +5,13 @@ import { BiSolidPencil } from "react-icons/bi";
 import EditModal from "../EditModal";
 import Forms from "../Forms";
 
-const Player = ({ playerInfo, metricInfo, headerColor, onDelete, onUpdate }) => {
+const Player = ({ playerInfo, metricInfo, headerColor, rankingPosition, onDelete, onUpdate }) => {
 
     const [isModalVisible, setModalVisible] = useState(false);
     const openModal = () => setModalVisible(true);
     const closeModal = () => setModalVisible(false);
 
-    const FuncTest = (player) => {
+    const updateAndCloseModal = (player) => {
         onUpdate(player)
         closeModal()
     }
@@ -27,6 +27,7 @@ const Player = ({ playerInfo, metricInfo, headerColor, onDelete, onUpdate }) => 
         <div className="player">
             <BiSolidPencil size={28} className="edit-player" onClick={openModal} />
             <FaTrash size={25} className="delete-player" onClick={() => onDelete(playerInfo.id)} />
+            <p className="ranking-position"> { rankingPosition + 1 }º </p>
             <div className="playerHeader" style={{ backgroundColor: headerColor }}>
                 <img src={playerInfo.image_url} alt="foto do jogador" />
             </div>
@@ -38,7 +39,7 @@ const Player = ({ playerInfo, metricInfo, headerColor, onDelete, onUpdate }) => 
             </div>
 
             <EditModal isVisible={isModalVisible}>
-                <Forms onFormsSubmit={player => FuncTest(player)} action="update" onClose={closeModal} currentValues={playerInfo} />
+                <Forms onFormsSubmit={player => updateAndCloseModal(player)} action="update" onClose={closeModal} currentValues={playerInfo} />
             </EditModal>
         </div>
     )

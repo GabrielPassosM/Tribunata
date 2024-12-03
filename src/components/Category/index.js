@@ -28,12 +28,13 @@ const Category = ({ players, color, name, onDelete, onUpdate }) => {
         players.length > 0 && <section className="category" style={{ backgroundColor: hexToRgba(color, 0.4) }}>
             <h3 style={{borderColor: color}} >{name}</h3>
             <div className="players">
-                {sortedPlayers.map(p => {
+                {sortedPlayers.map((p, rankingPosition) => {
                     return <Player 
                         key={p.id}
                         playerInfo={p}
                         metricInfo={[p[metricKey], metricLabel]}
-                        headerColor={color} 
+                        headerColor={color}
+                        rankingPosition={rankingPosition} 
                         onDelete={onDelete}
                         onUpdate={onUpdate}
                     />
