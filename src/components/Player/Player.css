@@ -43,10 +43,22 @@
     top: -10px;
 }
 
+.player .edit-player:hover {
+    cursor: pointer;
+    color: #4a90e2;
+    transition: all 0.2s ease;
+}
+
 .player .delete-player {
     position: absolute;
     right: -10px;
     top: -10px;
+}
+
+.player .delete-player:hover {
+    cursor: pointer;
+    color: red;
+    transition: all 0.2s ease;
 }
 
 .player .ranking-position {
