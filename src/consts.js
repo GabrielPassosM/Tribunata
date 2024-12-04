@@ -19,7 +19,7 @@ export const AppCategories = [
     },
     {
       name: "Cartões vermelhos",
-      color: "#ff3131",
+      color: "#e34242",
     }
 ]
 
