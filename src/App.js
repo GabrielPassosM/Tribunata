@@ -37,7 +37,7 @@ function App() {
   async function deletePlayer(id) {
     const confirmed = await showConfirmationModal()
     if (confirmed) {
-      apiDeletePlayer(id)
+      await apiDeletePlayer(id)
       setPlayers(players.filter(p => p.id !== id))
     }
   }
