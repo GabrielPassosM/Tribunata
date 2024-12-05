@@ -72,26 +72,31 @@ const Forms = ({ onFormsSubmit, action, onClose, currentValues = {} }) => {
                         label="Gols"
                         inputValue={goals}
                         setInputValue={value => setGoals(value)}
+                        required={true}
                     />
                     <NumberField
                         label="Assistências"
                         inputValue={assists}
                         setInputValue={value => setAssists(value)}
+                        required={true}
                     />
                     <NumberField
                         label="Pontos MVP"
                         inputValue={mvps}
                         setInputValue={value => setMvps(value)}
+                        required={true}
                     />
                     <NumberField
                         label="Cartões amarelos"
                         inputValue={yellowCards}
                         setInputValue={value => setYellowCards(value)}
+                        required={true}
                     />
                     <NumberField
                         label="Cartões vermelhos"
                         inputValue={redCards}
                         setInputValue={value => setRedCards(value)}
+                        required={true}
                     />
                 </div>
 
