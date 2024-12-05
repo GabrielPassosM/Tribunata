@@ -2,6 +2,8 @@ import "./Player.css"
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { BiSolidPencil } from "react-icons/bi";
+import { IoMdPerson } from "react-icons/io";
+import { TbSoccerField } from "react-icons/tb";
 import EditModal from "../EditModal";
 import Forms from "../Forms";
 
@@ -29,14 +31,22 @@ const Player = ({ playerInfo, metricInfo, headerColor, rankingPosition, onDelete
                 <BiSolidPencil size={28} className="edit-player" onClick={openModal} />
                 <FaTrash size={25} className="delete-player" onClick={() => onDelete(playerInfo.id)} />
                 <p className="ranking-position"> { rankingPosition + 1 }º </p>
-                <div className="playerHeader" style={{ backgroundColor: headerColor }}>
+                <div className="player-header" style={{ backgroundColor: headerColor }}>
                     <img src={playerInfo.image_url} alt="foto do jogador" />
                 </div>
 
-                <div className="playerFooter">
-                    <h4>{playerInfo.name}</h4>
-                    <h4>{positionLabel}</h4>
-                    <h5>{metricInfo[0]} {metricInfo[1]}</h5>
+                <div className="player-body">
+                    <div className="player-info">
+                        <IoMdPerson size={25}/>
+                        <h4>{playerInfo.name}</h4>
+                    </div>
+                    <div className="player-info">
+                        <TbSoccerField size={25}/>
+                        <h4>{positionLabel}</h4>
+                    </div>
+                    <h2>
+                        <span>{metricInfo[0]}</span> {metricInfo[1]}
+                    </h2>
                 </div>
             </div>
             <EditModal isVisible={isModalVisible}>

@@ -12,7 +12,7 @@
     transition: all 0.3s ease;
 }
 
-.player .playerHeader {
+.player .player-header {
     background-color: #F8F8F8;
     border-radius: 10px 10px 0 0;
 }
@@ -31,7 +31,7 @@
     transition: all 0.5s ease;
 }
 
-.player .playerFooter {
+.player .player-body {
     background: #FFFFFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 10px 10px;
@@ -39,7 +39,7 @@
     padding-bottom: 40px;
 }
 
-.player .playerFooter h4 {
+.player .player-body h4 {
     color: #6278F7;
     font-size: 18px;
     line-height: 22px;
@@ -47,11 +47,27 @@
     margin-bottom: 8px;
 }
 
-.player .playerFooter h5 {
+.player .player-body h2 {
     font-size: 18px;
     line-height: 22px;
     color: #333;
     padding: 0 16px;
+}
+
+.player .player-body h2 span {
+    font-size: 32px;
+}
+
+.player .player-body .player-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player .player-body .player-info h4{
+    position: relative;
+    top: -8px;
+    margin-left: 8px;
 }
 
 .player .edit-player {
