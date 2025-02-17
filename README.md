@@ -1,4 +1,1 @@
-# Tribunata
-
-Gerenciador de times de futebol feito com React.
-V1
+Messing around to learn React
